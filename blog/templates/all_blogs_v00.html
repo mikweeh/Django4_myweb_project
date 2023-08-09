@@ -1,0 +1,54 @@
+
+<!-- Whenever you use static files, you have to load them first like this -->
+{% load static %}
+
+<h1> BLOGS. There are {{ blogs.count }} blog{{blogs.count|pluralize}}</h1>
+
+<br><br><br>
+
+<!-- The reference to static files is relative to the folder current_app/static -->
+<img src="{% static 'RiuOneta.jpg' %}" width=600>
+
+<br><br>
+
+<!-- Ojito calamar que te voy a contar con todo detalle lo que hago aquí
+Pretendo que cada blog que salga en esta página tenga un enlace al propio blog, y
+que este enlace se ponga automáticamente.
+
+Todos los enlaces apuntarán a la misma plantilla html (oneblog.html), pero con
+contenidos específicos de cada blog.-->
+
+My current blogs are the following:
+
+<br><br>
+
+<!-- Lo primero que se hace es un bucle for. Recuerda que cuando tienes que poner
+algo de código tienes que ponerlo entre llaves y porcentajes.
+Date cuenta de que 'blogs' es una clave de diccionario, que se ha pasado a esta
+plantilla desde la función 'all_blogs()' del módulo blog/views.py.
+Esta clave de diccionario tiene como valor un iterable de blogs. Cada elemento es
+del tipo Blog -->
+{% for blog in blogs %}
+<!-- Dentro de cada iteración tenemos un objeto Blog llamado 'blog'. Lo primero que
+hacemos con él es añadirle un hipervínculo. Este hipervínculo va a acabar teniendo una
+pinta tal que asi: http://127.0.0.1/blog/3
+La instrucción es la siguiente: <a href="{% url 'blog:oneblog' blog.id %}">
+y genera una url según el siguiente criterio: (por defecto ya te pondrá el http://127.0.0.1/)
+    'blog:oneblog': Lo primero (blog) identifica la aplicación tal como sale en urls.py
+        en la variable 'app_name'. Lo segundo (oneblog) es el 'name' de una entrada de la
+        lista 'urlpatterns' del script blog/urls.py. Ahora, teniendo completamente identificada
+        la entrada de urlpatterns, ya se sabe que la url tendrá /blog/x (siendo x un número entero)
+    blog.id: Luego se sigue confeccionando la url; es decir, hay que poner el número entero que aún
+        no hemos especificado. Pues bien, el número entero será el que se indique en el campo 'id'
+        del objeto actual; es decir, en blog.id
+-->
+<a href="{% url 'blog:oneblog' blog.id %}">
+    <h2>{{ blog.title }}</h2>
+</a>
+<br>
+<h5>{{ blog.date|date:'d M Y'|upper }}</h5> <br>
+<p>{{ blog.description|truncatechars:40 }}</p> <br>
+
+<br><br>
+
+{% endfor %}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mikweeh site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Whenever you use static files, you have to load them first like this -->
+    {% load static %}
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'Logo.png' %}">
+  </head>
+
+
+  <body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}#">
+          <img src="{% static 'Logo.jpg' %}" alt="Logo" class="logo-image" style="width: 20px;">
+          <span class="text-warning">mik</span>weeh
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+    <!-- Here comes the custom content -->
+    {% block content %}{% endblock %}
+  
+    <!-- Footer -->
+    <footer class="bg-dark p-2 text-center">
+        <div class="container">
+        <p class="text-white">All Rights Reserved @mikweeh</p>
+        </div>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Whenever you use static files, you have to load them first like this -->
+{% load static %}
+
+<h1> Home page </h1>
+
+<p> Mem això lorem ipsum et dialictus liamolesso</p>
+
+<br><br><br>
+
+<!-- Un enlace a la página principal de blogs-->
+<!-- 'blog:all_blogs' == 'app:urlname in urlpatterns list'-->
+<a href="{% url 'blog:all_blogs' %}"> Blogs </a>
+
+<br><br><br>
+
+<!-- Un enlace a un archivo pdf guardado en static -->
+<a href="{% static 'CV_202306.pdf' %}">Cucurrucucú Palomaaaa</a>
+
+<br><br><br>
+
+<!-- Un enlace a un vídeo que te descargas -->
+<a href="{% static 'VID1.AVI' %}">Torrentades</a>
+
+<br><br><br>
+
+<!-- The reference to static files is relative to the folder current_app/static -->
+<img src="{% static 'PValldemossa.jpg' %}" width=600>
+
+<br><br><br>
+
+My current projects are:
+
+<br><br>
+
+<!-- Bucle sobre el listado de proyectos -->
+{% for project in projects %}
+
+<h2>{{ project.title }}</h2> <br>
+<p>{{ project.description }}</p> <br>
+<img src="{{ project.image.url }}" width=300>
+
+{% if project.url %}
+<a href="{{ project.url }}">Link</a>
+{% endif %}
+<br><br>
+
+{% endfor %}
+
+{% endblock %}

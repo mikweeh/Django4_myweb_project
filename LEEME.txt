@@ -1,0 +1,25 @@
+Este es el proyecto 2 del curso de Zappy Code.
+
+Lo he modificado convenientemente.
+
+Dentro de la carpeta de proyecto encontrarás una carpeta main; es aquí
+donde está el núcleo del backend (settings.py y demás mandangas)
+
+También encontrarás dos carpetas de aplicaciones (portfolio y blog)
+Portfolio es la aplicación principal, la que se carga por defecto.
+Si añades proyectos desde el admin, automáticamente se verán en la
+página de proyectos (listado de proyectos apilado)
+Blog es una aplicación que lista páginas web por número. Viene a ser
+una aplicación parecida a la anterior; pero en esta puedes entrar
+en una página web de cada proyecto. Esta web es siempre una misma
+plantilla que se rellena con datos del blog. La URL se genera automáticamente
+en base al identificador de blog.
+
+Todo está tuneado con Bootstrap 5.
+
+Los códigos tienen comentarios.
+
+En portfolio/templates encontrarás unos cuantos códigos html. Los que
+acaban en v00 son las primeras versiones. Ya no se usan; pero tienen
+comentarios y son muy básicos; pueden servirte para coger el concepto
+general.

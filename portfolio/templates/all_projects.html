@@ -1,0 +1,54 @@
+<!-- Extended page -->
+{% extends 'base.html' %}
+
+<!-- Whenever you use static files, you have to load them first like this -->
+{% load static %}
+
+<!-- Block content initial indicator-->
+{% block content %}
+
+  <br><br><br>
+
+  <!-- Projects section -->
+  <section id="about" class="about section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header text-center pb-5">
+            <h2>Current Projects</h2>
+            <p>Currently there are {{projects.count}} project{{projects.count|pluralize}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loop through the projects -->
+      {% for project in projects %}
+      <div class="project-container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-12">
+          <div class="about-img">
+            <img src="{{ project.image.url }}" alt="" class="img-fluid">
+          </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+          <div class="about-text">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+            {% if project.url %}
+            <a href="{{ project.url }}" class="btn btn-warning">Learn More</a>
+            {% else %}
+            <a class="btn btn-warning">Learn More</a>
+            {% endif %}
+          </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      {% endfor %}
+
+    </div>
+  </section>
+
+<!-- Block content end indicator -->
+{% endblock %}

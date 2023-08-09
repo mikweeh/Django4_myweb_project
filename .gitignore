@@ -1,0 +1,43 @@
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compiled Java classes
+*.class
+
+# Log files
+*.log
+
+# Python cache
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# Compiled files
+*.pyc
+*.pyo
+
+# macOS-specific files
+.DS_Store
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Compiled Node.js modules
+node_modules/
+
+# The database
+db*
+
+# The loaded media
+media/

@@ -1,0 +1,29 @@
+<!-- Extended page -->
+{% extends 'base.html' %}
+
+<!-- Whenever you use static files, you have to load them first like this -->
+{% load static %}
+
+<!-- Block content initial indicator-->
+{% block content %}
+
+
+  <!-- Main section -->
+  <section class="about section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header text-center pb-5">
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.date|date:'F jS Y' }}</p>
+          </div>
+          <div>
+            {{blog.description|safe}}
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+<!-- Block content end indicator -->
+{% endblock %}
