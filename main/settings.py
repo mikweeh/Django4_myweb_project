@@ -119,6 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Definiendo así STATIC_ROOT, el comentario siguiente puedes obviarlo
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Atención!! Si vas a usar imágenes estáticas, tienes que definir esta
@@ -146,3 +148,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+try:
+    from .local_settings import *
+except ImportError:
+    print("There's no local settings file. You must be in production.")
