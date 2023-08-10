@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(sxc$@!4w&_hluj$t(3od)9thj-p6!vqp)#$k%*+_ncds+lj7q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mikweeh.pythonanywhere.com']
 
 
 # Application definition
@@ -119,6 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Atención!! Si vas a usar imágenes estáticas, tienes que definir esta
 # variable tal cual se define aquí. Luego, dentro de cada directorio
@@ -126,7 +127,8 @@ STATIC_URL = 'static/'
 # ficheros estáticos. En el código html tendrás que importar static
 # {% load static %} y referenciar las imágenes directamente con el nombre
 # del archivo <img src="{% static 'nombrearchivo.jpg' %}">
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# OJO, esta línea hay que dejarla comentada en el deploy
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Atención!! Date cuenta de que tan solo definiendo 'MEDIA_ROOT', todas las
 # imágenes que guardes en tus modelos se guardarán en esta carpeta. En el

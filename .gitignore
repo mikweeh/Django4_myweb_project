@@ -21,6 +21,7 @@ env/
 
 # Compiled files
 *.pyc
+*.pot
 *.pyo
 
 # macOS-specific files
@@ -41,3 +42,7 @@ db*
 
 # The loaded media
 media/
+/static/
+
+# Local settings django
+local_settings.py
